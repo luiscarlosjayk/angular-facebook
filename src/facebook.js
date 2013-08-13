@@ -94,11 +94,15 @@ define(['angular'], function(angular) {
              */
             var facebookScope = $rootScope.$new();
             
+            /**
+             * Create a $q instance to implement asynchronous calls
+             */
             var deferred  = $q.defer();
             
+            var ready = false;
             // Facebook API is ready to use
             facebookScope.$on('Facebook:load', function(ev, FB) {
-              
+              ready = true;
               $rootScope.$apply(function() {
                 deferred.resolve(FB);
               });
@@ -110,6 +114,10 @@ define(['angular'], function(angular) {
              */
             function ngFacebook() {
               this.appId  = settings.appId;
+            };
+            
+            ngFacebook.prototype.isReady = function() {
+              return ready;
             };
             
             // Map some asynchronous Facebook sdk methods to ngFacebook
