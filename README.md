@@ -13,8 +13,8 @@ USAGE
 You first have to declare dependency of 'Facebook' module inside your app module (perhaps inside your app main module).
 Then you need to configure the Facebook module using the 'FacebookProvider':
   
-  // Code below
-  angular.module('MyApp', ['Facebook'])
+    // Code below
+    angular.module('MyApp', ['Facebook'])
     
     .config([
       'FacebookProvider',
