@@ -34,7 +34,7 @@ Then you need to configure the Facebook module using the 'FacebookProvider':
     
     .controller('AnyController', [
       '$scope',
-      'Facebook',
+      'Facebook', // Don't forget to inject the Facebook Service :D
       function($scope, Facebook) {
         
         // Here, usually you should watch for when Facebook is ready and loaded
