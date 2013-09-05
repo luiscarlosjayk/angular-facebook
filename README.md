@@ -3,12 +3,17 @@ Angularjs-Facebook
 
 An Angularjs module to take approach of Facebook javascript sdk.
 
+DEMO
+----
+Hope this helps :+1:
+http://plnkr.co/edit/dDAmvdCibv46ULfgKCd3?p=preview
 
 USAGE
-=====
+-----
 You first have to declare dependency of 'Facebook' module inside your app module (perhaps inside your app main module).
 Then you need to configure the Facebook module using the 'FacebookProvider':
-
+  
+  
   angular.module('MyApp', ['Facebook'])
     
     .config([
@@ -81,9 +86,3 @@ Then you need to configure the Facebook module using the 'FacebookProvider':
     ])
     ;
     
-
-
-DEMO
-====
-Hope this helps :+1:
-http://plnkr.co/edit/dDAmvdCibv46ULfgKCd3?p=preview
