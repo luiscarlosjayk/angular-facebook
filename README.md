@@ -1,16 +1,25 @@
 Angularjs-Facebook
 ==================
 
-An Angularjs module to take approach of Facebook javascript sdk.
+An AngularJS module to take approach of the [Facebook Javascript SDK](https://developers.facebook.com/docs/reference/javascript/).
 
-DEMO
+Demo
 ----
-Hope this helps :+1:
-http://plnkr.co/edit/dDAmvdCibv46ULfgKCd3?p=preview
+You can find a sample usage [in this demo](http://plnkr.co/edit/dDAmvdCibv46ULfgKCd3?p=preview). :+1
 
-USAGE
+Install
 -----
-You first have to declare dependency of 'Facebook' module inside your app module (perhaps inside your app main module).
+
+install with bower
+
+    bower install angularjs-facebook
+
+or download the [master.zip](https://github.com/Ciul/Angularjs-Facebook/archive/master.zip)
+
+Usage
+---
+
+You first have to declare dependency of ```Facebook``` module inside your app module (perhaps inside your app main module).
 Then you need to configure the Facebook module using the 'FacebookProvider':
   
     // Code below
@@ -38,14 +47,11 @@ Then you need to configure the Facebook module using the 'FacebookProvider':
       function($scope, Facebook) {
         
         // Here, usually you should watch for when Facebook is ready and loaded
-        $watch(
-          function() {
+        $watch(function() {
             return Facebook.isReady(); // This is for convenience, to notify if Facebook is loaded and ready to go.
-          },
-          function(newVal) {
+        }, function(newVal) {
             $scope.facebookReady = true; // You might want to use this to disable/show/hide buttons and else
-          }
-        );
+        });
         
         // From now and on you can use the Facebook service just as Facebook api says
         // Take into account that you will need $scope.$apply when being inside Facebook functions scope and not angular
@@ -80,9 +86,6 @@ Then you need to configure the Facebook module using the 'FacebookProvider':
             });
           });
         };
-        
-        
       }
-    ])
-    ;
+    ]);
     
