@@ -7,6 +7,7 @@
   ],
   "description": "An Angularjs module to take approach of Facebook javascript sdk.",
   "main": "src/facebook.js",
+  "main": "lib/angular-facebook.js",
   "keywords": [
     "facebook",
     "angularjs",
