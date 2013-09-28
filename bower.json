@@ -5,8 +5,8 @@
   "authors": [
     "Luis Carlos Osorio Jayk <luiscarlosjayk@gmail.com>"
   ],
-  "description": "An Angularjs module to take approach of Facebook javascript sdk.",
-  "main": "src/facebook.js",
+  "description": "An AngularJS module to take approach of the Facebook Javascript SDK.",
+  "main": "lib/angular-facebook.js",
   "keywords": [
     "facebook",
     "angularjs",
@@ -20,5 +20,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "angular": "~1.0.8",
+    "angular-mocks": "~1.0.8"
+  }
 }

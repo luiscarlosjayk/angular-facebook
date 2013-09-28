@@ -213,3 +213,15 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+##############
+## Bower
+##############
+
+bower_components/
+
+##############
+## NPM
+##############
+
+node_modules/
