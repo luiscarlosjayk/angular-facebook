@@ -89,3 +89,9 @@ Then you need to configure the Facebook module using the 'FacebookProvider':
       }
     ]);
     
+## Test
+
+First install the dependencies with npm: `npm install`
+
+- **production**: `npm test` (single run / PhantomJS)
+- **development**: `karma start` (file watch / Chrome)
