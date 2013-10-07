@@ -14,7 +14,7 @@ You can find a sample usage [in this demo](http://plnkr.co/edit/dDAmvdCibv46ULfg
 
 install with bower
 
-    bower install angularjs-facebook
+    bower install angular-facebook
 
 or download the [master.zip](https://github.com/Ciul/Angularjs-Facebook/archive/master.zip)
 
