@@ -5,8 +5,8 @@ describe('Service: NgFacebook', function () {
     // Load the service's module
     module('facebook');
 
-    inject(function (facebook) {
-      fb = facebook;
+    inject(function (Facebook) {
+      fb = Facebook;
     });
   });
 
