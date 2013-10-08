@@ -1,10 +1,10 @@
 // JavaScript
-describe('Service: Facebook', function () {
+describe('Service: facebook', function () {
   var facebook, facebookProvider;
 
   beforeEach(function () {
     // Load the service's module
-    module('Facebook', function (_FacebookProvider_) {
+    module('facebook', function (_FacebookProvider_) {
       facebookProvider = _FacebookProvider_;
     });
 

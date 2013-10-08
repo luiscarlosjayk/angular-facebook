@@ -3,10 +3,10 @@ describe('Service: NgFacebook', function () {
 
   beforeEach(function () {
     // Load the service's module
-    module('Facebook');
+    module('facebook');
 
-    inject(function (Facebook) {
-      fb = Facebook;
+    inject(function (facebook) {
+      fb = facebook;
     });
   });
 
