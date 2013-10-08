@@ -21,7 +21,7 @@ or download the [master.zip](https://github.com/Ciul/Angularjs-Facebook/archive/
 ## Usage
 
 You first have to declare dependency of ```facebook``` module inside your app module (perhaps inside your app main module).
-Then you need to configure the Facebook module using the 'FacebookProvider':
+Then you need to configure the facebook module using the 'FacebookProvider':
 
     angular.module('MyApp', ['Facebook'])
 
