@@ -23,7 +23,7 @@ or download the [master.zip](https://github.com/Ciul/Angularjs-Facebook/archive/
 You first have to declare dependency of ```facebook``` module inside your app module (perhaps inside your app main module).
 Then you need to configure the facebook module using the 'FacebookProvider':
 
-    angular.module('MyApp', ['Facebook'])
+    angular.module('MyApp', ['facebook']) // inject facebook module
 
     .config(['FacebookProvider', function(FacebookProvider) {
          // Here you could set your appId throug the setAppId method and then initialize
@@ -31,11 +31,11 @@ Then you need to configure the facebook module using the 'FacebookProvider':
          FacebookProvider.init('my-ap-id');
     }])
 
-    .controller('authenticationCtrl', ['$scope', 'facebook', function($scope, facebook) {
+    .controller('authenticationCtrl', ['$scope', 'Facebook', function($scope, Facebook) {
 
       // Here, usually you should watch for when Facebook is ready and loaded
       $watch(function() {
-        return facebook.isReady(); // This is for convenience, to notify if Facebook is loaded and ready to go.
+        return Facebook.isReady(); // This is for convenience, to notify if Facebook is loaded and ready to go.
       }, function(newVal) {
         $scope.facebookReady = true; // You might want to use this to disable/show/hide buttons and else
       });
@@ -43,13 +43,13 @@ Then you need to configure the facebook module using the 'FacebookProvider':
       // From now and on you can use the Facebook service just as Facebook api says
       // Take into account that you will need $scope.$apply when being inside Facebook functions scope and not angular
       $scope.login = function() {
-        facebook.login(function(response) {
+        Facebook.login(function(response) {
           // Do something with response. Don't forget here you are on Facebook scope so use $scope.$apply
         });
       };
       
       $scope.getLoginStatus = function() {
-        facebook.getLoginStatus(response) {
+        Facebook.getLoginStatus(response) {
           if(response.status == 'connected')
             $scope.$apply(function() {
               $scope.loggedIn = true;
@@ -62,7 +62,7 @@ Then you need to configure the facebook module using the 'FacebookProvider':
         };
 
         $scope.me = function() {
-          facebook.api('/me', function(response) {
+          Facebook.api('/me', function(response) {
             $scope.$apply(function() {
               // Here you could re-check for user status (just in case)
               $scope.user = response;
