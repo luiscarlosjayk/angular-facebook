@@ -1,4 +1,4 @@
-Angularjs-Facebook
+Angular-Facebook
 ==================
 
 [![Build Status](https://travis-ci.org/Ciul/angularjs-facebook.png)](https://travis-ci.org/Ciul/angularjs-facebook) 
@@ -16,7 +16,7 @@ install with bower
 
     bower install angular-facebook
 
-or download the [master.zip](https://github.com/Ciul/Angularjs-Facebook/archive/master.zip)
+or download the [master.zip](https://github.com/Ciul/angular-facebook/archive/master.zip)
 
 ## Usage
 
