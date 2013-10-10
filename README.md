@@ -71,9 +71,7 @@ Then you need to configure the facebook module using the 'FacebookProvider':
         };
     }]);
 
-## Test
+## Running Test
 
 First install the dependencies with npm: `npm install`
-
-- **production**: `npm test` (single run / PhantomJS)
-- **development**: `karma start` (file watch / Chrome)
+Run the tests with `karma start` (file watch / Chrome) – more about [karma-runner](https://github.com/karma-runner/karma)
