@@ -23,7 +23,7 @@ describe('Service: facebook', function () {
       expect(facebookProvider.getAppId()).toBe(null);
     });
     it('working getter / setter for appId', function () {
-      facebookProvider.setAppId(123456789101112)
+      facebookProvider.setAppId(123456789101112);
       expect(facebookProvider.getAppId()).toBe(123456789101112);
     });
 
@@ -31,7 +31,7 @@ describe('Service: facebook', function () {
       expect(facebookProvider.getLocale()).toBe('en_US');
     });
     it('working getter / setter for locale', function () {
-      facebookProvider.setLocale('de_DE')
+      facebookProvider.setLocale('de_DE');
       expect(facebookProvider.getLocale()).toBe('de_DE');
     });
 
@@ -39,7 +39,7 @@ describe('Service: facebook', function () {
       expect(facebookProvider.getStatus()).toBe(true);
     });
     it('working getter / setter for status', function () {
-      facebookProvider.setStatus(false)
+      facebookProvider.setStatus(false);
       expect(facebookProvider.getStatus()).toBe(false);
     });
 
@@ -47,7 +47,7 @@ describe('Service: facebook', function () {
       expect(facebookProvider.getChannel()).toBe(null);
     });
     it('working getter / setter for channel', function () {
-      facebookProvider.setChannel('//WWW.YOUR_DOMAIN.COM/channel.html')
+      facebookProvider.setChannel('//WWW.YOUR_DOMAIN.COM/channel.html');
       expect(facebookProvider.getChannel()).toBe('//WWW.YOUR_DOMAIN.COM/channel.html');
     });
 
@@ -55,7 +55,7 @@ describe('Service: facebook', function () {
       expect(facebookProvider.getCookie()).toBe(true);
     });
     it('working getter / setter for cookie', function () {
-      facebookProvider.setCookie(false)
+      facebookProvider.setCookie(false);
       expect(facebookProvider.getCookie()).toBe(false);
     });
 
@@ -63,7 +63,7 @@ describe('Service: facebook', function () {
       expect(facebookProvider.getXfbml()).toBe(true);
     });
     it('working getter / setter for xfbml', function () {
-      facebookProvider.setXfbml(false)
+      facebookProvider.setXfbml(false);
       expect(facebookProvider.getXfbml()).toBe(false);
     });
   });
