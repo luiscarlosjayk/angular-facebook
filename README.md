@@ -55,7 +55,7 @@ app.controller('authenticationCtrl', ['$scope', 'Facebook', function($scope, Fac
         $scope.$apply(function() {
           $scope.loggedIn = true;
         });
-      } else {
+      else
         $scope.$apply(function() {
           $scope.loggedIn = false;
         });
