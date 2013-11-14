@@ -66,5 +66,46 @@ describe('Service: facebook', function () {
       facebookProvider.setXfbml(false);
       expect(facebookProvider.getXfbml()).toBe(false);
     });
+
+    it('authResponse as default value', function () {
+      expect(facebookProvider.getAuthResponse()).toBe(true);
+    });
+    it('working getter / setter for authResponse', function () {
+      var obj = {};
+      facebookProvider.setAuthResponse(obj);
+      expect(facebookProvider.getAuthResponse()).toBe(obj);
+    });
+
+    it('FrictionlessRequests as default value', function () {
+      expect(facebookProvider.getFrictionlessRequests()).toBe(false);
+    });
+    it('working getter / setter for FrictionlessRequests', function () {
+      var obj = {};
+      facebookProvider.setFrictionlessRequests(obj);
+      expect(facebookProvider.getFrictionlessRequests()).toBe(obj);
+    });
+
+    it('HideFlashCallback as default value', function () {
+      expect(facebookProvider.getHideFlashCallback()).toBe(null);
+    });
+    it('working getter / setter for HideFlashCallback', function () {
+      var obj = {};
+      facebookProvider.setHideFlashCallback(obj);
+      expect(facebookProvider.getHideFlashCallback()).toBe(obj);
+    });
+
+    it('working setInitCustomOption', function () {
+      expect(facebookProvider.setInitCustomOption(null, null)).toBe(false);
+      expect(facebookProvider.setInitCustomOption('key', null)).toBe(null);
+    });
+
+
+    it('working getInitOption', function () {
+      var obj = { anotherSomeKey: true };
+      facebookProvider.setInitCustomOption('someKey', obj);
+      expect(facebookProvider.getInitOption('someKey')).toBe(obj);
+      expect(facebookProvider.getInitOption()).toBe(false);
+    });
+
   });
 });
