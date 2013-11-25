@@ -1,7 +1,7 @@
 Angular-Facebook
 ==================
 
-[![Build Status](https://travis-ci.org/Ciul/angular-facebook.png)](https://travis-ci.org/Ciul/angular-facebook) 
+[![Build Status](https://travis-ci.org/Ciul/angular-facebook.png?branch=master)](https://travis-ci.org/Ciul/angular-facebook) 
 [![Dependency Status](https://david-dm.org/Ciul/angular-facebook.png)](https://david-dm.org/Ciul/angular-facebook) 
 
 An AngularJS module to take approach of the [Facebook Javascript SDK](https://developers.facebook.com/docs/reference/javascript/).
