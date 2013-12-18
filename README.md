@@ -35,7 +35,7 @@ app.config(['FacebookProvider', function(FacebookProvider) {
 app.controller('authenticationCtrl', ['$scope', 'Facebook', function($scope, Facebook) {
 
   // Here, usually you should watch for when Facebook is ready and loaded
-  $watch(function() {
+  $scope.$watch(function() {
     return Facebook.isReady(); // This is for convenience, to notify if Facebook is loaded and ready to go.
   }, function(newVal) {
     $scope.facebookReady = true; // You might want to use this to disable/show/hide buttons and else
