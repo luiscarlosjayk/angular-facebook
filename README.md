@@ -50,12 +50,13 @@ app.controller('authenticationCtrl', ['$scope', 'facebook', function($scope, Fac
   };
   
   $scope.getLoginStatus = function() {
-    Facebook.getLoginStatus(response) {
-      if(response.status == 'connected')
+    Facebook.getLoginStatus(function(response) {
+      if(response.status == 'connected') {
         $scope.$apply(function() {
           $scope.loggedIn = true;
         });
-      else
+      }
+      else {
         $scope.$apply(function() {
           $scope.loggedIn = false;
         });
