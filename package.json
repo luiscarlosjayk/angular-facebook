@@ -41,6 +41,6 @@
     "karma-ng-scenario": "~0.1.0",
     "bower": "~1.2.6",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-jshint": "~0.6.4"
+    "grunt-contrib-jshint": "~0.7.2"
   }
 }
