@@ -32,7 +32,7 @@ app.config(['FacebookProvider', function(FacebookProvider) {
      FacebookProvider.init('my-ap-id');
 }])
 
-app.controller('authenticationCtrl', ['$scope', 'Facebook', function($scope, Facebook) {
+app.controller('authenticationCtrl', ['$scope', 'facebook', function($scope, Facebook) {
 
   // Here, usually you should watch for when Facebook is ready and loaded
   $scope.$watch(function() {
