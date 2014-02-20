@@ -28,7 +28,7 @@ Then you need to configure the facebook module using the 'FacebookProvider':
 var app = angular.module('app', ['facebook']); // inject facebook module
 
 app.config(['FacebookProvider', function(FacebookProvider) {
-     // Here you could set your appId throug the setAppId method and then initialize
+     // Here you could set your appId through the setAppId method and then initialize
      // or use the shortcut in the initialize method directly.
      FacebookProvider.init('my-ap-id');
 }])
@@ -42,8 +42,8 @@ app.controller('authenticationCtrl', ['$scope', 'Facebook', function($scope, Fac
     $scope.facebookReady = true; // You might want to use this to disable/show/hide buttons and else
   });
   
-  // From now and on you can use the Facebook service just as Facebook api says
-  // Take into account that you will need $scope.$apply when being inside Facebook functions scope and not angular
+  // From now on you can use the Facebook service just as Facebook api says
+  // Take into account that you will need $scope.$apply when inside a Facebook function's scope and not angular
   $scope.login = function() {
     Facebook.login(function(response) {
       // Do something with response. Don't forget here you are on Facebook scope so use $scope.$apply
