@@ -9,14 +9,14 @@ An AngularJS module based approach to the [Facebook Javascript SDK](https://deve
 
 ## Demo
 
-You can find a sample usage [in this demo](http://plnkr.co/edit/dDAmvdCibv46ULfgKCd3?p=preview).
+[Sample application](http://plnkr.co/edit/dDAmvdCibv46ULfgKCd3?p=preview).
 
 ## Install
 
 install with bower
-
-    bower install angular-facebook
-
+```bash
+bower install angular-facebook
+```
 or download the [master.zip](https://github.com/Ciul/angular-facebook/archive/master.zip)
 
 ## Usage
