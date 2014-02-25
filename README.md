@@ -5,23 +5,23 @@ Angular-Facebook
 [![Dependency Status](https://david-dm.org/Ciul/angular-facebook.png)](https://david-dm.org/Ciul/angular-facebook) 
 [![devDependency Status](https://david-dm.org/Ciul/angular-facebook/dev-status.png)](https://david-dm.org/Ciul/angular-facebook#info=devDependencies)
 
-An AngularJS module to take approach of the [Facebook Javascript SDK](https://developers.facebook.com/docs/reference/javascript/).
+An AngularJS module based approach to the [Facebook Javascript SDK](https://developers.facebook.com/docs/reference/javascript/).
 
 ## Demo
 
-You can find a sample usage [in this demo](http://plnkr.co/edit/dDAmvdCibv46ULfgKCd3?p=preview).
+[Sample application](http://plnkr.co/edit/dDAmvdCibv46ULfgKCd3?p=preview).
 
 ## Install
 
 install with bower
-
-    bower install angular-facebook
-
+```bash
+bower install angular-facebook
+```
 or download the [master.zip](https://github.com/Ciul/angular-facebook/archive/master.zip)
 
 ## Usage
 
-You first have to declare dependency of ```facebook``` module inside your app module (perhaps inside your app main module).
+You first have to declare the ```facebook``` module dependency inside your app module (perhaps inside your app main module).
 Then you need to configure the facebook module using the 'FacebookProvider':
 
 ```javascript
@@ -75,7 +75,7 @@ app.controller('authenticationCtrl', ['$scope', 'Facebook', function($scope, Fac
 }]);
 ```
 
-## Running Test
+## Running Tests
 
 First install the dependencies with npm: `npm install`
 
