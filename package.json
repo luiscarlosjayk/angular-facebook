@@ -1,6 +1,6 @@
 {
   "name": "angularjs-facebook",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "An AngularJS module to take approach of the Facebook Javascript SDK.",
   "main": "lib/angular-facebook.js",
   "directories": {
