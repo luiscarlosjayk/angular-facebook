@@ -67,6 +67,9 @@ describe('Service: facebook', function () {
       expect(facebookProvider.getXfbml()).toBe(false);
     });
 
+    it('authResponse as default value', function () {
+      expect(facebookProvider.getAuthResponse()).toBe(undefined);
+    });
     it('working getter / setter for authResponse', function () {
       var obj = {};
       facebookProvider.setAuthResponse(obj);
