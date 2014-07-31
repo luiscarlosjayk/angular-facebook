@@ -52,7 +52,7 @@ app.controller('authenticationCtrl', ['$scope', 'Facebook', function($scope, Fac
   
   $scope.getLoginStatus = function() {
     Facebook.getLoginStatus(function(response) {
-      if(response.status == 'connected') {
+      if(response.status === 'connected') {
         $scope.$apply(function() {
           $scope.loggedIn = true;
         });
@@ -62,16 +62,17 @@ app.controller('authenticationCtrl', ['$scope', 'Facebook', function($scope, Fac
           $scope.loggedIn = false;
         });
       }
-    };
+    });
+  };
 
-    $scope.me = function() {
-      Facebook.api('/me', function(response) {
-        $scope.$apply(function() {
-          // Here you could re-check for user status (just in case)
-          $scope.user = response;
-        });
+  $scope.me = function() {
+    Facebook.api('/me', function(response) {
+      $scope.$apply(function() {
+        // Here you could re-check for user status (just in case)
+        $scope.user = response;
       });
-    };
+    });
+  };
 }]);
 ```
 
