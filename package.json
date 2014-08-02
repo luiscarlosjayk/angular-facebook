@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "grunt karma:ci"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -26,21 +26,15 @@
   },
   "devDependencies": {
     "karma": "~0.12.19",
-    "grunt": "~0.4.1",
-    "grunt-karma": "~0.8.3",
-    "karma-script-launcher": "~0.1.0",
-    "karma-chrome-launcher": "~0.1.0",
-    "karma-firefox-launcher": "~0.1.0",
-    "karma-phantomjs-launcher": "~0.1.0",
-    "karma-opera-launcher": "~0.1.0",
-    "karma-safari-launcher": "~0.1.1",
-    "karma-html2js-preprocessor": "~0.1.0",
-    "karma-jasmine": "~0.1.3",
-    "karma-coffee-preprocessor": "~0.2.1",
-    "karma-ng-html2js-preprocessor": "~0.1.0",
-    "karma-ng-scenario": "~0.1.0",
     "bower": "~1.3.8",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-jshint": "~0.10.0"
+    "gulp-jshint": "~1.8.3",
+    "gulp": "~3.8.7",
+    "gulp-watch": "~0.6.9",
+    "gulp-karma": "0.0.4",
+    "gulp-util": "~3.0.0",
+    "karma-jasmine": "~0.1.5",
+    "karma-chrome-launcher": "~0.1.4",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "jshint-stylish": "~0.4.0"
   }
 }

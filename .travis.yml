@@ -2,6 +2,6 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  - npm install -g karma bower grunt-cli
+  - npm install -g gulp bower
   - bower install
   - npm install

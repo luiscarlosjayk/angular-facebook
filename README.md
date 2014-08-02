@@ -76,8 +76,8 @@ app.controller('authenticationCtrl', ['$scope', 'Facebook', function($scope, Fac
 }]);
 ```
 
-## Running Tests
+## Development
 
-First install the dependencies with npm: `npm install`
-
-Run the tests with `grunt karma:dev` (file watch / Chrome)
+- `npm install`
+- `bower install`
+- `gulp test-dev`
