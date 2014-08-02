@@ -1,5 +1,5 @@
 // JavaScript
-describe('Service: facebook', function () {
+describe('Provider: facebookProvider', function () {
   var facebook, facebookProvider;
 
   beforeEach(function () {
