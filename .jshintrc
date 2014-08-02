@@ -1,17 +1,24 @@
 {
   "curly": true,
   "eqeqeq": true,
-  "eqnull": true,
-  "expr": true,
+  "immed": true,
   "latedef": true,
-  "onevar": true,
+  "newcap": true,
   "noarg": true,
-  "node": true,
-  "trailing": true,
+  "sub": true,
   "undef": true,
   "unused": true,
+  "boss": true,
+  "eqnull": true,
   "browser": true,
-  "global": {
+  "globals": {
+    "jQuery": true,
+    "module": true,
+    "describe": true,
+    "beforeEach": true,
+    "inject": true,
+    "it": true,
+    "expect": true,
     "FB": true,
     "angular": true
   }

@@ -12,29 +12,7 @@ module.exports = function(grunt) {
 
     jshint: {
       options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        unused: true,
-        boss: true,
-        eqnull: true,
-        browser: true,
-        globals: {
-          jQuery: true,
-          module: true,
-          describe: true,
-          beforeEach: true,
-          inject: true,
-          it: true,
-          expect: true,
-          FB: true,
-          angular: true
-        }
+        jshintrc: true
       },
       test: {
         src: ['test/**/*.js']
