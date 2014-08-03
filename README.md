@@ -91,6 +91,9 @@ gulp watch
 To run protractor tests you need to install protractor first. ([Protractor Setup](https://github.com/angular/protractor/blob/master/docs/tutorial.md#setup))
 
 ```
+# Prepare the testapp
+gulp prepare-testapp
+
 # Run protractor tests
 protractor protractor.conf.js
 ```
