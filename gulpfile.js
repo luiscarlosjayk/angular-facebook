@@ -44,9 +44,10 @@ gulp.task('lint', function() {
 
 gulp.task('watch', function () {
   gulp.watch([
-      './lib/**/*.js',
-      './test/**/*.js'
-    ], ['lint']);
+    './lib/**/*.js',
+    './test/**/*.js'
+  ], ['lint']);
+  gulp.run('test-dev');
 });
 
 gulp.task('test', function(cb) {
