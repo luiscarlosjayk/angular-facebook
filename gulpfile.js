@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var watch = require('gulp-watch');
 
+var connect = require('gulp-connect');
+
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 
@@ -72,6 +74,11 @@ gulp.task('prepare-testapp', function () {
   ], {
     base: '.'
   }).pipe(gulp.dest('./testapp'));
+
+  connect.server({
+    root: 'testapp',
+    port: 3333
+  });
 })
 
 gulp.task('default', function() {

@@ -36,6 +36,7 @@
     "karma-chrome-launcher": "~0.1.4",
     "karma-phantomjs-launcher": "~0.1.4",
     "jshint-stylish": "~0.4.0",
-    "protractor": "~1.0.0"
+    "protractor": "~1.0.0",
+    "gulp-connect": "~2.0.6"
   }
 }
