@@ -7,7 +7,7 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       'lib/angular-facebook.js',
       'lib/angular-facebook-phonegap.js',
-      'test/**/*.js'
+      'test/unit/*.spec.js'
     ],
     exclude: [],
     port: 8080,
