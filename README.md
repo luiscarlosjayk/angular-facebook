@@ -25,39 +25,39 @@ You first have to declare the ```facebook``` module dependency inside your app m
 Then you need to configure the facebook module using the 'FacebookProvider':
 
 ```javascript
-var app = angular.module('app', ['facebook']); // inject facebook module
+angular.module('app', ['facebook'])
 
-app.config(['FacebookProvider', function(FacebookProvider) {
-     // Here you could set your appId through the setAppId method and then initialize
-     // or use the shortcut in the initialize method directly.
-     FacebookProvider.init('my-ap-id');
-}])
+  .config(function(FacebookProvider) {
+     // Set your appId through the setAppId method or
+     // use the shortcut in the initialize method directly.
+     FacebookProvider.init('YOUR_APP_ID');
+  })
 
-app.controller('authenticationCtrl', function($scope, Facebook) {
+  .controller('authenticationCtrl', function($scope, Facebook) {
 
-  $scope.login = function() {
-    // From now on you can use the Facebook service just as Facebook api says
-    Facebook.login(function(response) {
-      // Do something with response.
-    });
-  };
+    $scope.login = function() {
+      // From now on you can use the Facebook service just as Facebook api says
+      Facebook.login(function(response) {
+        // Do something with response.
+      });
+    };
 
-  $scope.getLoginStatus = function() {
-    Facebook.getLoginStatus(function(response) {
-      if(response.status === 'connected') {
-        $scope.loggedIn = true;
-      } else {
-        $scope.loggedIn = false;
-      }
-    });
-  };
+    $scope.getLoginStatus = function() {
+      Facebook.getLoginStatus(function(response) {
+        if(response.status === 'connected') {
+          $scope.loggedIn = true;
+        } else {
+          $scope.loggedIn = false;
+        }
+      });
+    };
 
-  $scope.me = function() {
-    Facebook.api('/me', function(response) {
-      $scope.user = response;
-    });
-  };
-});
+    $scope.me = function() {
+      Facebook.api('/me', function(response) {
+        $scope.user = response;
+      });
+    };
+  });
 ```
 
 You can use the `isReady` function to get notified when the Facebook SDK is ready
