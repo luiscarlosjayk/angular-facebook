@@ -12,6 +12,12 @@
   "eqnull": true,
   "browser": true,
   "globals": {
+    "console": true,
+    "handle": true,
+    "browser": true,
+    "by": true,
+    "element": true,
+    "protractor": true,
     "jQuery": true,
     "module": true,
     "describe": true,

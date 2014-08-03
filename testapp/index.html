@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+
+  <head>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="lib/angular-facebook.js"></script>
+    <script>
+
+      angular.module('app', ['facebook'])
+
+        .config(function(FacebookProvider) {
+          FacebookProvider.init('433847516707016');
+        })
+
+        .controller('mainCtrl', function ($scope, Facebook) {
+          $scope.login = function () {
+            Facebook.login(function(response) {
+              if (response.status == 'connected') {
+                $scope.status = 'yes';
+              } else {
+                $scope.status = 'no';
+              }
+            });
+          };
+        });
+
+    </script>
+  </head>
+
+  <body ng-controller="mainCtrl">
+    <div id="status" ng-bind="status"></div>
+    <button type="button" id="login" ng-click="login()">login with facebook</button>
+  </body>
+
+</html>

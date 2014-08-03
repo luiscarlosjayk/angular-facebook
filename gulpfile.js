@@ -65,6 +65,15 @@ gulp.task('test-dev', function(cb) {
   }, cb);
 });
 
+gulp.task('prepare-testapp', function () {
+  gulp.src([
+    './bower_components/**',
+    './lib/**',
+  ], {
+    base: '.'
+  }).pipe(gulp.dest('./testapp'));
+})
+
 gulp.task('default', function() {
   gulp.start('lint');
 });

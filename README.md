@@ -76,8 +76,25 @@ app.controller('authenticationCtrl', ['$scope', 'Facebook', function($scope, Fac
 }]);
 ```
 
-## Development
+Development
+-------------
 
-- `npm install`
-- `bower install`
-- `gulp test-dev`
+Install all dependencies and use gulp to watch the tests
+
+```
+# Install node.js dependencies
+npm install
+
+# Install bower components
+bower install
+
+# Run karma tests
+gulp watch
+```
+
+To run protractor tests you need to install protractor first. ([Protractor Setup](https://github.com/angular/protractor/blob/master/docs/tutorial.md#setup))
+
+```
+# Run protractor tests
+protractor protractor.conf.js
+```
