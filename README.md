@@ -95,5 +95,5 @@ To run protractor tests you need to install protractor first. ([Protractor Setup
 gulp prepare-testapp
 
 # Run protractor tests
-protractor protractor.conf.js
+protractor protractor.config.js
 ```
