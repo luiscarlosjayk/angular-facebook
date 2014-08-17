@@ -27,6 +27,14 @@ describe('Provider: facebookProvider', function () {
       expect(facebookProvider.getAppId()).toBe(123456789101112);
     });
 
+    it('loadSDK as default value', function () {
+      expect(facebookProvider.getLoadSDK()).toBe(undefined);
+    });
+    it('working getter / setter for loadSDK', function () {
+      facebookProvider.setLoadSDK(false);
+      expect(facebookProvider.getLoadSDK()).toBe(false);
+    });
+
     it('locale as default value', function () {
       expect(facebookProvider.getLocale()).toBe('en_US');
     });
@@ -98,8 +106,6 @@ describe('Provider: facebookProvider', function () {
       expect(facebookProvider.setInitCustomOption(null, null)).toBe(false);
       expect(facebookProvider.setInitCustomOption('key', null)).toBe(null);
     });
-
-
     it('working getInitOption', function () {
       var obj = { anotherSomeKey: true };
       facebookProvider.setInitCustomOption('someKey', obj);
