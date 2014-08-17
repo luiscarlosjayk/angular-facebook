@@ -35,6 +35,14 @@ describe('Provider: facebookProvider', function () {
       expect(facebookProvider.getLoadSDK()).toBe(false);
     });
 
+    it('sdkVersion as default value', function () {
+      expect(facebookProvider.getSdkVersion()).toBe('v2.0');
+    });
+    it('working getter / setter for sdkVersion', function () {
+      facebookProvider.setSdkVersion('v1.0');
+      expect(facebookProvider.getSdkVersion()).toBe('v1.0');
+    });
+
     it('locale as default value', function () {
       expect(facebookProvider.getLocale()).toBe('en_US');
     });
