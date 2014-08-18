@@ -22,6 +22,12 @@
               }
             });
           };
+
+          $scope.api = function () {
+            Facebook.api('/me', function(response) {
+              $scope.user = response;
+            });
+          };
         });
 
     </script>
@@ -30,6 +36,8 @@
   <body ng-controller="mainCtrl">
     <div id="status" ng-bind="status"></div>
     <button type="button" id="login" ng-click="login()">login with facebook</button>
+    <button type="button" id="api" ng-click="api()">api user data call</button>
+    <pre id="api_first_name" ng-bind="user.first_name"></pre>
   </body>
 
 </html>

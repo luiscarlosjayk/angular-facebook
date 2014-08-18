@@ -1,9 +1,11 @@
 /* jshint unused:false */
 
 describe('testapp', function() {
-  it('should open a popup when hitting the login btn', function() {
 
-    var ptor = protractor.getInstance();
+  var ptor = protractor.getInstance();
+
+  it('should open a popup when hitting the login btn and authenticate successfully', function() {
+
     browser.get('/');
 
     // open facebook login popup
@@ -38,4 +40,11 @@ describe('testapp', function() {
         return expect(browser.driver.findElement(by.id('status')).getText()).toBe('yes');
       });
   });
+
+  it('should use authenticated api call and show user data', function () {
+    // open facebook login popup
+    element(by.id('api')).click();
+    browser.sleep(1000);
+    expect(browser.driver.findElement(by.id('api_first_name')).getText()).toBe('angular');
+  })
 });
