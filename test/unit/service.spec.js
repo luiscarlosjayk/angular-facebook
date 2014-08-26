@@ -56,6 +56,21 @@ describe('Service: Facebook', function () {
     }).toThrow('Missing appId setting.');
   });
 
+  // review(mrzymr): is this useful ?
+  it('should throw an error when using login method before initialization', function() {
+    var result;
+
+    facebook
+      .login(angular.noop)
+      .then(angular.noop, function (response) {
+        result = response;
+      });
+
+    $timeout.flush();
+
+    expect(result).toBe('Facebook.login() called before Facebook SDK has loaded.');
+  });
+
   describe('after running $window.fbAsyncInit', function() {
 
     beforeEach(function () {
