@@ -17,109 +17,118 @@ describe('Provider: facebookProvider', function () {
     expect(!!facebookProvider).toBe(true);
   });
 
-  describe('the provider api should provide', function () {
+  describe('the provider api should', function () {
 
-    it('appId as default value', function () {
+    var provideTxt = 'provide a getter / setter including the right default value for: ';
+
+    it(provideTxt + '`appId`', function () {
       expect(facebookProvider.getAppId()).toBe(null);
-    });
-    it('working getter / setter for appId', function () {
+
       facebookProvider.setAppId(123456789101112);
       expect(facebookProvider.getAppId()).toBe(123456789101112);
     });
 
-    it('loadSDK as default value', function () {
+    it(provideTxt + 'loadSDK`', function () {
       expect(facebookProvider.getLoadSDK()).toBe(undefined);
-    });
-    it('working getter / setter for loadSDK', function () {
+
       facebookProvider.setLoadSDK(false);
       expect(facebookProvider.getLoadSDK()).toBe(false);
     });
 
-    it('sdkVersion as default value', function () {
+    it(provideTxt + 'sdkVersion`', function () {
       expect(facebookProvider.getSdkVersion()).toBe('v2.0');
-    });
-    it('working getter / setter for sdkVersion', function () {
       facebookProvider.setSdkVersion('v1.0');
       expect(facebookProvider.getSdkVersion()).toBe('v1.0');
     });
 
-    it('locale as default value', function () {
+    it(provideTxt + 'locale`', function () {
       expect(facebookProvider.getLocale()).toBe('en_US');
-    });
-    it('working getter / setter for locale', function () {
+
       facebookProvider.setLocale('de_DE');
       expect(facebookProvider.getLocale()).toBe('de_DE');
     });
 
-    it('status as default value', function () {
+    it(provideTxt + 'status`', function () {
       expect(facebookProvider.getStatus()).toBe(true);
-    });
-    it('working getter / setter for status', function () {
+
       facebookProvider.setStatus(false);
       expect(facebookProvider.getStatus()).toBe(false);
     });
 
-    it('channel as default value', function () {
+    it(provideTxt + 'channel`', function () {
       expect(facebookProvider.getChannel()).toBe(null);
-    });
-    it('working getter / setter for channel', function () {
+
       facebookProvider.setChannel('//WWW.YOUR_DOMAIN.COM/channel.html');
       expect(facebookProvider.getChannel()).toBe('//WWW.YOUR_DOMAIN.COM/channel.html');
     });
 
-    it('cookie as default value', function () {
+    it(provideTxt + 'cookie`', function () {
       expect(facebookProvider.getCookie()).toBe(true);
-    });
-    it('working getter / setter for cookie', function () {
+
       facebookProvider.setCookie(false);
       expect(facebookProvider.getCookie()).toBe(false);
     });
 
-    it('xfbml as default value', function () {
+    it(provideTxt + 'xfbml`', function () {
       expect(facebookProvider.getXfbml()).toBe(true);
-    });
-    it('working getter / setter for xfbml', function () {
+
       facebookProvider.setXfbml(false);
       expect(facebookProvider.getXfbml()).toBe(false);
     });
 
-    it('authResponse as default value', function () {
+    it(provideTxt + 'authResponse`', function () {
       expect(facebookProvider.getAuthResponse()).toBe(undefined);
-    });
-    it('working getter / setter for authResponse', function () {
-      var obj = {};
+
+      var obj = { a: 1 };
       facebookProvider.setAuthResponse(obj);
       expect(facebookProvider.getAuthResponse()).toBe(obj);
     });
 
-    it('FrictionlessRequests as default value', function () {
+    it(provideTxt + 'FrictionlessRequests`', function () {
       expect(facebookProvider.getFrictionlessRequests()).toBe(false);
-    });
-    it('working getter / setter for FrictionlessRequests', function () {
-      var obj = {};
+
+      var obj = { b: 2 };
       facebookProvider.setFrictionlessRequests(obj);
       expect(facebookProvider.getFrictionlessRequests()).toBe(obj);
     });
 
-    it('HideFlashCallback as default value', function () {
+    it(provideTxt + 'HideFlashCallback`', function () {
       expect(facebookProvider.getHideFlashCallback()).toBe(null);
-    });
-    it('working getter / setter for HideFlashCallback', function () {
-      var obj = {};
+
+      var obj = { c: 3 };
       facebookProvider.setHideFlashCallback(obj);
       expect(facebookProvider.getHideFlashCallback()).toBe(obj);
     });
 
-    it('working setInitCustomOption', function () {
+    it('provide a working setInitCustomOption method', function () {
       expect(facebookProvider.setInitCustomOption(null, null)).toBe(false);
       expect(facebookProvider.setInitCustomOption('key', null)).toBe(null);
     });
-    it('working getInitOption', function () {
+
+    it('provide a working getInitOption method', function () {
       var obj = { anotherSomeKey: true };
       facebookProvider.setInitCustomOption('someKey', obj);
       expect(facebookProvider.getInitOption('someKey')).toBe(obj);
       expect(facebookProvider.getInitOption()).toBe(false);
     });
 
+    it('consume the appId in the init method as normal string', function () {
+      facebookProvider.init('1234567');
+      expect(facebookProvider.getInitOption('appId')).toBe('1234567');
+    });
+
+    it('consume the appId in the init method as object', function () {
+      facebookProvider.init({
+        appId: '123456'
+      });
+      expect(facebookProvider.getInitOption('appId')).toBe('123456');
+    });
+
+    it('define to load the sdk or not in the init method', function () {
+      facebookProvider.init({
+        appId: '123456'
+      }, false);
+      expect(facebookProvider.getInitOption('loadSDK')).toBe(false);
+    });
   });
 });
