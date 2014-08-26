@@ -1,3 +1,5 @@
+/* global process, require */
+
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 
@@ -77,7 +79,7 @@ gulp.task('prepare-testapp', function () {
     root: 'testapp',
     port: 3333
   });
-})
+});
 
 gulp.task('default', function() {
   gulp.start('lint');
