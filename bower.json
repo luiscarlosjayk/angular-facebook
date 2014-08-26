@@ -22,10 +22,7 @@
     "tests"
   ],
   "devDependencies": {
-    "angular": "~1.2.22",
-    "angular-mocks": "~1.2.22"
-  },
-  "resolutions": {
-    "angular": "~1.2.22"
+    "angular": "~1.2.23",
+    "angular-mocks": "~1.2.23"
   }
 }
