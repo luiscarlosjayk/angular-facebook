@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var watch = require('gulp-watch');
 
 var connect = require('gulp-connect');
 
@@ -9,8 +8,6 @@ var stylish = require('jshint-stylish');
 
 var karma = require('karma').server;
 var path = require('path');
-
-var karmaConf = require('./karma.conf');
 
 var karma = require('karma');
 var karmaParseConfig = require('karma/lib/config').parseConfig;
@@ -47,7 +44,8 @@ gulp.task('lint', function() {
 gulp.task('watch', function () {
   gulp.watch([
     './lib/**/*.js',
-    './test/**/*.js'
+    './test/**/*.js',
+    './gulpfile.js'
   ], ['lint']);
   gulp.run('test-dev');
 });
