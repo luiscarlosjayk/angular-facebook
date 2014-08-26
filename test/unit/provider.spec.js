@@ -1,4 +1,3 @@
-// JavaScript
 describe('Provider: facebookProvider', function () {
   var facebook, facebookProvider;
 
@@ -11,10 +10,6 @@ describe('Provider: facebookProvider', function () {
     inject(function (_Facebook_) {
       facebook = _Facebook_;
     });
-  });
-
-  it('should exist', function () {
-    expect(!!facebookProvider).toBe(true);
   });
 
   describe('the provider api should', function () {
@@ -82,6 +77,10 @@ describe('Provider: facebookProvider', function () {
       var obj = { a: 1 };
       facebookProvider.setAuthResponse(obj);
       expect(facebookProvider.getAuthResponse()).toBe(obj);
+
+      // todo(mrzmyr): review
+      facebookProvider.setAuthResponse(false);
+      expect(facebookProvider.getAuthResponse()).toBe(true);
     });
 
     it(provideTxt + 'FrictionlessRequests`', function () {
@@ -98,6 +97,10 @@ describe('Provider: facebookProvider', function () {
       var obj = { c: 3 };
       facebookProvider.setHideFlashCallback(obj);
       expect(facebookProvider.getHideFlashCallback()).toBe(obj);
+
+      // todo(mrzmyr): review
+      facebookProvider.setHideFlashCallback(false);
+      expect(facebookProvider.getHideFlashCallback()).toBe(null);
     });
 
     it('provide a working setInitCustomOption method', function () {
@@ -129,6 +132,14 @@ describe('Provider: facebookProvider', function () {
         appId: '123456'
       }, false);
       expect(facebookProvider.getInitOption('loadSDK')).toBe(false);
+    });
+
+    // todo(mrzmyr): is this ready useful ?
+    it('use the previous set appId if using the init mehtod twice', function () {
+      facebookProvider.setInitCustomOption('appId', '123');
+      expect(facebookProvider.getInitOption('appId')).toBe('123');
+      facebookProvider.init(undefined);
+      expect(facebookProvider.getInitOption('appId')).toBe('123');
     });
   });
 });
