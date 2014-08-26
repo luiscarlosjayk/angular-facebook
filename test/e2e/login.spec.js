@@ -39,7 +39,6 @@ describe('testapp', function() {
         return browser.driver.findElement(by.name('login')).click();
       }, errorCb).then(function() {
         // switch back to first window
-        browser.sleep(1000);
         return browser.driver.findElement(by.name('__CONFIRM__')).click();
       }, errorCb).then(function() {
         // switch back to first window
