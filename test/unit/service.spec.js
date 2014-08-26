@@ -163,10 +163,10 @@ describe('Service: Facebook', function () {
 
       loginCallback(data);
 
+      $timeout.flush();
+
       expect($window.FB.login).toHaveBeenCalled();
       expect(loginCallbackFn).toHaveBeenCalled();
-
-      $timeout.flush();
 
       expect(result).toBe(data);
 
