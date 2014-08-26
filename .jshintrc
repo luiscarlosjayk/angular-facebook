@@ -12,6 +12,8 @@
   "eqnull": true,
   "browser": true,
   "globals": {
+    "jasmine": true,
+    "spyOn": true,
     "console": true,
     "handle": true,
     "browser": true,
@@ -26,6 +28,7 @@
     "it": true,
     "expect": true,
     "FB": true,
-    "angular": true
+    "angular": true,
+    "exports": true
   }
 }
