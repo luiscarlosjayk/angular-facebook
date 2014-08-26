@@ -46,5 +46,5 @@ describe('testapp', function() {
     element(by.id('api')).click();
     browser.sleep(1000);
     expect(browser.driver.findElement(by.id('api_first_name')).getText()).toBe('angular');
-  })
+  });
 });
