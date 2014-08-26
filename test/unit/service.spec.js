@@ -151,19 +151,38 @@ describe('Service: Facebook', function () {
     });
 
     it('should map the login method to window.FB', function() {
-
       spyOn($window.FB, 'login').and.callThrough();
 
       var loginCallbackFn = jasmine.createSpy('loginCallbackFn');
+      var result;
+      var data = { id: 1 };
 
-      facebook.login(loginCallbackFn);
+      facebook.login(loginCallbackFn).then(function (response) {
+        result = response;
+      });
 
-      loginCallback({ test: true });
-
-      $timeout.flush();
+      loginCallback(data);
 
       expect($window.FB.login).toHaveBeenCalled();
       expect(loginCallbackFn).toHaveBeenCalled();
+
+      $timeout.flush();
+
+      expect(result).toBe(data);
+
+      // --------------------
+
+      facebook
+        .login(angular.noop)
+        .then(angular.noop, function () {
+          result = 'test1';
+        });
+
+      loginCallback(undefined);
+
+      $timeout.flush();
+
+      expect(result).toBe('test1');
     });
   });
 });
