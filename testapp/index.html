@@ -13,13 +13,24 @@
         })
 
         .controller('mainCtrl', function ($scope, Facebook) {
+
+          $scope.loginStatus = 'disconnected';
+          $scope.facebookIsReady = false;
+          $scope.user = null;
+
           $scope.login = function () {
             Facebook.login(function(response) {
-              if (response.status == 'connected') {
-                $scope.status = 'yes';
-              } else {
-                $scope.status = 'no';
-              }
+              $scope.loginStatus = response.status;
+            });
+          };
+
+          $scope.removeAuth = function () {
+            Facebook.api({
+              method: 'Auth.revokeAuthorization'
+            }, function(response) {
+              Facebook.getLoginStatus(function(response) {
+                $scope.loginStatus = response.status;
+              });
             });
           };
 
@@ -28,16 +39,27 @@
               $scope.user = response;
             });
           };
+
+          $scope.$watch(function() {
+              return Facebook.isReady();
+            }, function(newVal) {
+              if (newVal) {
+                $scope.facebookIsReady = true;
+              }
+            }
+          );
         });
 
     </script>
   </head>
 
   <body ng-controller="mainCtrl">
-    <div id="status" ng-bind="status"></div>
-    <button type="button" id="login" ng-click="login()">login with facebook</button>
+    <button type="button" id="login" ng-click="login()">login</button>
     <button type="button" id="api" ng-click="api()">api user data call</button>
-    <pre id="api_first_name" ng-bind="user.first_name"></pre>
+    <button type="button" id="remove_auth" ng-click="removeAuth()">remove auth</button>
+    <pre>isReady: <span id="is_ready" ng-bind="facebookIsReady"></span></pre>
+    <pre>status: <span id="login_status" ng-bind="loginStatus"></span></pre>
+    <pre>username: <span id="api_first_name" ng-bind="user.first_name"></span></pre>
   </body>
 
 </html>
