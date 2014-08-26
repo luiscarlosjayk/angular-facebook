@@ -226,3 +226,4 @@ bower_components/
 
 node_modules/
 testapp/lib
+coverage
