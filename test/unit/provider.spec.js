@@ -120,6 +120,11 @@ describe('Provider: facebookProvider', function () {
       expect(facebookProvider.getInitOption('appId')).toBe('1234567');
     });
 
+    it('consume the appId in the init method as number', function () {
+      facebookProvider.init(1234567);
+      expect(facebookProvider.getInitOption('appId')).toBe('1234567');
+    });
+
     it('consume the appId in the init method as object', function () {
       facebookProvider.init({
         appId: '123456'
