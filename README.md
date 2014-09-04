@@ -2,9 +2,6 @@ Angular-Facebook
 ==================
 
 [![Build Status](http://img.shields.io/travis/Ciul/angular-facebook.svg?style=flat)](https://travis-ci.org/Ciul/angular-facebook) 
-[![Dependency Status](http://img.shields.io/david/Ciul/angular-facebook.svg?style=flat)](https://david-dm.org/Ciul/angular-facebook) 
-[![devDependency Status](http://img.shields.io/david/dev/Ciul/angular-facebook.svg?style=flat)](https://david-dm.org/Ciul/angular-facebook#info=devDependencies)
-[![Coverage Status](https://img.shields.io/coveralls/Ciul/angular-facebook.svg)](https://coveralls.io/r/Ciul/angular-facebook)
 
 An AngularJS module based approach to the [Facebook Javascript SDK](https://developers.facebook.com/docs/reference/javascript/).
 
