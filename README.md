@@ -1,9 +1,7 @@
-Angular-Facebook
+Angular-Facebook [![Build Status](http://img.shields.io/travis/Ciul/angular-facebook.svg?style=flat)](https://travis-ci.org/Ciul/angular-facebook)
 ==================
 
-[![Build Status](http://img.shields.io/travis/Ciul/angular-facebook.svg?style=flat)](https://travis-ci.org/Ciul/angular-facebook) 
-
-An AngularJS module based approach to the [Facebook Javascript SDK](https://developers.facebook.com/docs/reference/javascript/).
+> An AngularJS module based approach to the [Facebook Javascript SDK](https://developers.facebook.com/docs/reference/javascript/).
 
 ## Demo
 
