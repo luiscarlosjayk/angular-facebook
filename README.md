@@ -5,7 +5,7 @@ Angular-Facebook [![Build Status](http://img.shields.io/travis/Ciul/angular-face
 
 ## Demo
 
-[Sample application](http://plnkr.co/edit/dDAmvdCibv46ULfgKCd3?p=preview).
+[Sample application](http://plnkr.co/edit/mA7dzreUlqqTJZqodAzv?p=preview).
 
 ## Install
 
