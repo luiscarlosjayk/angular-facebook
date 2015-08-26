@@ -5,6 +5,7 @@ var gutil = require('gulp-util');
 
 var connect = require('gulp-connect');
 
+var rename = require("gulp-rename");
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var uglify = require('gulp-uglify');
@@ -82,13 +83,19 @@ gulp.task('prepare-testapp', function () {
   });
 });
 
-gulp.task('compress', function() {
-  return gulp.src('lib/*.js')
+gulp.task('distribute', function() {
+  gulp
+    .src('./lib/*.js')
+    .pipe(gulp.dest('./dist'));
+
+  gulp
+    .src('lib/angular-facebook.js')
     .pipe(uglify())
+    .pipe(rename('angular-facebook.min.js'))
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('default', function() {
   gulp.start('lint');
-  gulp.start('compress');
+  gulp.start('distribute');
 });
