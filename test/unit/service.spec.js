@@ -4,6 +4,8 @@ describe('Service: Facebook', function () {
     facebookProvider,
     $window,
     $timeout,
+    $q,
+    $rootScope,
     fbSubscribeEventFunctions,
     fbUnsubscribeEventFunctions,
     getLoginStatusCallback,
@@ -17,10 +19,12 @@ describe('Service: Facebook', function () {
       facebookProvider = _FacebookProvider_;
     });
 
-    inject(function (_Facebook_, _$window_, _$timeout_) {
+    inject(function (_Facebook_, _$window_, _$timeout_,_$q_,_$rootScope_) {
       facebook = _Facebook_;
       $window = _$window_;
       $timeout = _$timeout_;
+      $q = _$q_;
+      $rootScope = _$rootScope_;
     });
 
     fbSubscribeEventFunctions = {};
@@ -49,11 +53,17 @@ describe('Service: Facebook', function () {
     };
   });
 
-  it('should throw an error when no trying to initalize and no appId is provided', function() {
-    expect(function() {
-      $window.fbAsyncInit();
-      $timeout.flush();
-    }).toThrow('Missing appId setting.');
+  it('should throw an error when no trying to initalize and no appId is provided', function(done) {
+    $window.fbAsyncInit().then(function(){
+
+    },function(error){
+      expect(error).toBe('Missing appId setting.');
+      done();
+    });
+//
+//    expect(function() {
+//      $window.fbAsyncInit();
+//    }).toThrow('Missing appId setting.');
   });
 
   // review(mrzymr): is this useful ?
@@ -73,23 +83,28 @@ describe('Service: Facebook', function () {
 
   describe('after running $window.fbAsyncInit', function() {
 
-    beforeEach(function () {
+
+    beforeEach(function (done) {
       facebookProvider.init('123456');
-      $window.fbAsyncInit();
-      $timeout.flush();
+      $window.fbAsyncInit().then(function(){
+        done();
+      });
     });
 
     it('isReady should answer with true', function() {
       expect(facebook.isReady()).toBe(true);
     });
 
-    it('should broadcast on $rootScope when facebook event is emitted', inject(function($rootScope) {
+    it('should broadcast on $rootScope when facebook event is emitted', function(done) {
       spyOn($rootScope, '$broadcast');
       var cbFn = function() {};
-      fbSubscribeEventFunctions['comment.remove'](cbFn);
-      $timeout.flush();
-      expect($rootScope.$broadcast).toHaveBeenCalledWith('Facebook:uncomment', cbFn);
-    }));
+      t = fbSubscribeEventFunctions['comment.remove'](cbFn);
+      t.then(function(){
+        expect($rootScope.$broadcast).toHaveBeenCalledWith('Facebook:uncomment', cbFn);
+        done();
+      });
+//      $timeout.flush();
+    });
 
     it('should be mapped parseXFBML to window.FB.XFBML.parse', inject(function () {
       facebook.parseXFBML();
@@ -97,7 +112,7 @@ describe('Service: Facebook', function () {
       expect($window.FB.XFBML.parse).toHaveBeenCalled();
     }));
 
-    it('should map the (un)subscribe method to window.FB.Event', function() {
+    it('should map the (un)subscribe method to window.FB.Event', function(done) {
 
       var subCallbackFn = jasmine.createSpy('subCallbackFn');
       var subCallbackEmptyResponseFn = jasmine.createSpy('subCallbackEmptyResponseFn');
@@ -114,19 +129,21 @@ describe('Service: Facebook', function () {
 
       $timeout.flush();
 
-      fbSubscribeEventFunctions['comment.create'](null);
-      fbSubscribeEventFunctions['edge.remove'](testData);
-      fbUnsubscribeEventFunctions['edge.remove'](testData);
+      $q.all([
+        fbSubscribeEventFunctions['comment.create'](null),
+        fbSubscribeEventFunctions['edge.remove'](testData),
+        fbUnsubscribeEventFunctions['edge.remove'](testData)
+      ]).then(function(){
+        expect($window.FB.Event.subscribe.calls.argsFor(0)[0]).toBe('comment.create');
+        expect($window.FB.Event.subscribe.calls.argsFor(1)[0]).toBe('edge.remove');
+        expect($window.FB.Event.unsubscribe.calls.argsFor(0)[0]).toBe('edge.remove');
 
-      $timeout.flush();
+        expect(subCallbackFn).toHaveBeenCalledWith(testData);
+        expect(unSubCallbackFn).toHaveBeenCalledWith(testData);
+        expect(subCallbackEmptyResponseFn).toHaveBeenCalledWith(null);
+        done()
+      });
 
-      expect($window.FB.Event.subscribe.calls.argsFor(0)[0]).toBe('comment.create');
-      expect($window.FB.Event.subscribe.calls.argsFor(1)[0]).toBe('edge.remove');
-      expect($window.FB.Event.unsubscribe.calls.argsFor(0)[0]).toBe('edge.remove');
-
-      expect(subCallbackFn).toHaveBeenCalledWith(testData);
-      expect(unSubCallbackFn).toHaveBeenCalledWith(testData);
-      expect(subCallbackEmptyResponseFn).toHaveBeenCalledWith(null);
     });
 
     it('should map the getLoginStatus/api method to window.FB', function() {
@@ -140,11 +157,13 @@ describe('Service: Facebook', function () {
       facebook.api(apiCallbackFn);
 
       $timeout.flush();
+      $rootScope.$digest();
 
       getLoginStatusCallback({ user: true });
       apiCallback(false);
 
       $timeout.flush();
+      $rootScope.$digest();
 
       expect($window.FB.getLoginStatus).toHaveBeenCalled();
       expect(getLoginStatusCallbackFn).toHaveBeenCalled();
