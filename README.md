@@ -30,7 +30,7 @@ angular.module('app', ['facebook'])
   .config(function(FacebookProvider) {
      // Set your appId through the setAppId method or
      // use the shortcut in the initialize method directly.
-     FacebookProvider.init('YOUR_APP_ID');
+     FacebookProvider.init({ appId: 'YOUR_APP_ID' });
   })
 
   .controller('authenticationCtrl', function($scope, Facebook) {
