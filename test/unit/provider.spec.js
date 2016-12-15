@@ -31,7 +31,7 @@ describe('Provider: facebookProvider', function () {
     });
 
     it(provideTxt + 'sdkVersion`', function () {
-      expect(facebookProvider.getSdkVersion()).toBe('v2.0');
+      expect(facebookProvider.getSdkVersion()).toBe('v2.3');
       facebookProvider.setSdkVersion('v1.0');
       expect(facebookProvider.getSdkVersion()).toBe('v1.0');
     });
